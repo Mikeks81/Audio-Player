@@ -8,8 +8,20 @@ var jukebox = {
 
 	curNum: 0,// counter to use with audio controls
 
+	
+	
+	progress: function(){
+		var progressB = document.getElementById('progress');
+		progressB.setAttribute("value", this.mediaPlayer.currentTime);
+		document.getElementById('time').innerHTML = this.mediaPlayer.currentTime;
+	},
+
+	mediaPlayer: addEventListener("timeupdate",progress),
+
+
 	// auto plays the next sone on the completion of the audio file.
 	// autoPlay: document.getElementById('player').addEventListener('ended',next),
+
 
 	play: function(){
 		// uses the .play() method on the audio player
@@ -71,6 +83,17 @@ var jukebox = {
 		this.songList.push(songUrl);
 		this.songName.push(songName);
 		this.artist.push(artistN);
+
+		var selector = document.getElementById('selector'); // selects the select tag in doc
+
+		// creates a new option html tag
+		var option = document.createElement('option');
+		// assigns the text of option to be the last item in songName array.
+		option.text = this.songName[this.songName.length -1];
+		// assigns the value to the last index ins songName array
+		option.value = this.songName.length -1;
+		// adds and option to the select tag specified in selector variable.
+		selector.add(option);
 	}
 }
 
