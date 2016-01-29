@@ -1,5 +1,55 @@
 body {
-	font-family: 'Bigelow Rules', cursive;
+	font-family: 'Fjalla One', sans-serif;
 	font-size: 30px;
-	background-image: url('circus_juke.jpeg');
+	color: #dd9700;	
+	background-size: 100%;
+}
+.upload {
+	margin-top: 6%;
+	width: 25%;
+	float: left;
+}
+.container {
+	width: 60%;
+	border-radius: 4px;
+	/*box-shadow: 0 0 10px #888;*/
+}
+
+.container h1 {
+	margin:0 0 0 230px;
+}
+
+#progress {
+	width: 350px;
+}
+
+.song_player{
+	width: 46%;
+	height: 200px;
+	margin: auto;
+	box-shadow:inset 0 0 3px rgb(43,43,43);
+	border: 1px solid #888;
+
+}
+
+.song_player p {
+	margin-left: 15px
+}
+#info {
+	font-size: 26px
+}
+#time {
+	margin-left: 15px;
+	font-size: 12px;
+}
+
+.controls {
+	width: 90%;
+	margin: auto;
+}
+#selector {
+	margin-left: 20px
+}
+.selector p {
+	font-size: 12px;
 }

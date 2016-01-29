@@ -5,37 +5,47 @@
   <title></title>
   <link rel="stylesheet" type="text/css" href="style.css">
   <link href='https://fonts.googleapis.com/css?family=Bigelow+Rules' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
-<h1>JuketheJuke</h1>
-<p id="info"></p>
-<audio onended="jukebox.next()"id="player" src="Patience.mp3"> </audio>
-<progress  id="progress" value="0" max="1" style="width:400px;"></progress>
-<p id="time"></p>
+<div class="container">
+	<div class="upload">
+		<p>Upload a Song</p>
+	 	<input id="upload_url" placeholder="Song URL">
+	 	<input id="upload_name" placeholder="Song Name">
+	 	<input id="upload_artist" placeholder="Artist">
+	 	<button id="upload_button" onclick="jukebox.addSong()">Upload!</button>
+	</div>
+	<div class="title">
+		<h1>JuketheJuke</h1>
+	</div>
+	<div class="song_player">
+		<div class="selector">
+		<p>Please select a song to play from the list</p>
+		<select id="selector" onchange="jukebox.selection()">
+			<option id="Patience.mp3" value="0">Patience</option>
+			<option id="Dont_Slow_Down.mp3" value="1">Don't Slow Down</option>
+			<option id="Roulette.mp3" value="2">Roulette</option>
+			<option id="Settler.mp3" value="3">Settler</option>
+		</select>
+		</div>
+		<p id="info">Song/Artist</p>
+		<p id="time">0:00/0:00</p>
+		<audio ontimeupdate="jukebox.progress()" onended="jukebox.next()"id="player" src="Patience.mp3"> </audio>
+		<progress  id="progress" value="0" max="1"></progress>
 
-<button id="prev" onclick="jukebox.prev()"><<</button>
-<button id="play" onclick="jukebox.play()">></button>
-<button id="pause" onclick="jukebox.pause()">II</button>
-<button id="next" onclick="jukebox.next()">>></button>
-<button id="vUp" onclick="jukebox.volumeUp()">VolumeUp</button>
-<button id="vUp" onclick="jukebox.volumeDown()">VulumeDown</button>
-<!-- <input type="range" id="myRange" value="90" min="0" max="100"> -->
-
-
-<p>Please select a song to play from the list</p>
-<select id="selector" onchange="jukebox.selection()">
-	<option id="Patience.mp3" value="0">Patience</option>
-	<option id="Dont_Slow_Down.mp3" value="1">Don't Slow Down</option>
-	<option id="Roulette.mp3" value="2">Roulette</option>
-	<option id="Settler.mp3" value="3">Settler</option>
-</select>
-
-<p>Upload a Song</p>
-<input id="upload_url" placeholder="Song URL">
-<input id="upload_name" placeholder="Song Name">
-<input id="upload_artist" placeholder="Artist">
-<button id="upload_button" onclick="jukebox.addSong()">Upload!</button> 
+		<div class="controls">
+			<button id="prev" onclick="jukebox.prev()"><<</button>
+			<button id="play" onclick="jukebox.play()">></button>
+			<button id="pause" onclick="jukebox.pause()">II</button>
+			<button id="next" onclick="jukebox.next()">>></button>
+			<button id="vUp" onclick="jukebox.volumeUp()">Volume Up</button>
+			<button id="vUp" onclick="jukebox.volumeDown()">Volume Down</button>
+		</div>
+	</div>
+	<!-- <input type="range" id="myRange" value="90" min="0" max="100"> --> 
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <script src="script.js"></script>

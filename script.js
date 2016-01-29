@@ -9,18 +9,19 @@ var jukebox = {
 	curNum: 0,// counter to use with audio controls
 
 	
-	
 	progress: function(){
 		var progressB = document.getElementById('progress');
-		progressB.setAttribute("value", this.mediaPlayer.currentTime);
-		document.getElementById('time').innerHTML = this.mediaPlayer.currentTime;
+
+
+		progressB.setAttribute("value", (this.mediaPlayer.currentTime / this.mediaPlayer.duration));
+		document.getElementById('time').innerHTML = Math.floor(this.mediaPlayer.currentTime) + "/" +Math.floor(this.mediaPlayer.duration);
 	},
 
-	mediaPlayer: addEventListener("timeupdate",progress),
+	// mediaPlayer.addEventListener("timeupdate",progress()),
 
 
 	// auto plays the next sone on the completion of the audio file.
-	// autoPlay: document.getElementById('player').addEventListener('ended',next),
+	// autoPlay: document.getElementById('player').addEventListener('ended',this.next()),
 
 
 	play: function(){
