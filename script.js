@@ -12,7 +12,7 @@ var jukebox = {
 	progress: function(){
 		var progressB = document.getElementById('progress');
 		
-		// ##### function below is taken from Stack Overflow ##### 
+		// ##### function below is taken from Stack Overflow  http://stackoverflow.com/questions/4993097/html5-display-audio-currenttime ##### 
 		function formatSecondsAsTime(secs, format) {
 			// hours - Math rounded by some magical math equation converting current time  to hours, mins, and seconds
 			  var hr  = Math.floor(secs / 3600);
@@ -38,12 +38,6 @@ var jukebox = {
 		// Dom'ing to show the mins and secs of son elapsed. 
 		document.getElementById('time').innerHTML = formatSecondsAsTime(currTime) + "/" + formatSecondsAsTime(duration);
 	},
-
-	// mediaPlayer.addEventListener("timeupdate",progress()),
-
-
-	// auto plays the next sone on the completion of the audio file.
-	// autoPlay: document.getElementById('player').addEventListener('ended',this.next()),
 
 
 	play: function(){
