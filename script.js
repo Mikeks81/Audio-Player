@@ -11,10 +11,32 @@ var jukebox = {
 	
 	progress: function(){
 		var progressB = document.getElementById('progress');
+		
+		// ##### function below is taken from Stack Overflow ##### 
+		function formatSecondsAsTime(secs, format) {
+			// hours - Math rounded by some magical math equation converting current time  to hours, mins, and seconds
+			  var hr  = Math.floor(secs / 3600);
+			  var min = Math.floor((secs - (hr * 3600))/60);
+			  var sec = Math.floor(secs - (hr * 3600) -  (min * 60));
 
+			  // if min are less than 10 add a "0" to mins so 5 mins will show as 05. Same for seconds
+			  if (min < 10){ 
+			    min = "0" + min; 
+			  }
+			  if (sec < 10){ 
+			    sec  = "0" + sec;
+			  }
+			  // formats the display so it looks like 00:05 
+			  return min + ':' + sec;
+			}
 
+		// converting current time and duration to string
+		 var currTime = Math.floor(this.mediaPlayer.currentTime).toString();
+		 var duration = Math.floor(this.mediaPlayer.duration).toString();
+		// this is my own -- divides the currenttime by duration and sends that value over to the progress bar to show progress
 		progressB.setAttribute("value", (this.mediaPlayer.currentTime / this.mediaPlayer.duration));
-		document.getElementById('time').innerHTML = Math.floor(this.mediaPlayer.currentTime) + "/" +Math.floor(this.mediaPlayer.duration);
+		// Dom'ing to show the mins and secs of son elapsed. 
+		document.getElementById('time').innerHTML = formatSecondsAsTime(currTime) + "/" + formatSecondsAsTime(duration);
 	},
 
 	// mediaPlayer.addEventListener("timeupdate",progress()),
