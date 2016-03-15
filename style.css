@@ -22,8 +22,12 @@ body {
 }
 
 .image_container{
-	width: 78.5%;
+	width: 1000px;
 	margin:auto;
+}
+
+#backgd {
+	width: 1000px;
 }
 
 .title {
@@ -100,7 +104,7 @@ body {
 
 .controls button {
 	height: 32px;
-	padding-left: 9px;
+	padding-left: 8.5px;
 	background: transparent;
 	border: none;
 	color: white;
